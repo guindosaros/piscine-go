@@ -17,3 +17,4 @@ func Sqrt(nb int) int {
 	}
 	return nb
 }
+
