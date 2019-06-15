@@ -3,6 +3,10 @@ package piscine
 import "fmt"
 
 func countdown(){
-	fmt.Print("9876543210")
+	i := 9
+	for i > 0 {
+		fmt.Print(i)
+		i--
 	}
-	
+	fmt.Print("\n")
+}
