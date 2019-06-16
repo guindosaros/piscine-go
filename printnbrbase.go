@@ -1,40 +1,46 @@
 package piscine
 
-import (
+import(
+	"math"
 	"fmt"
 	"strings"
 )
 
-func PrintNbrBase(nbr int, str string){
+func Reverse(s string) string {
+    var reverse string
+    for i := len(s)-1; i >= 0; i-- {
+        reverse += string(s[i])
+    }
+    return reverse 
+}
+
+func PrintNbrBase(nbr int, str string)(){
 	indx := 0
-	max := ""
-	
 	for _,res:= range str {
-		if string(res) == "-" || string(res) == "+" || strings.Count(str, string(res)) > 1{
+		if string(res) == "-" || string(res) == "+" || strings.Count(str, string(res)) > 1 {
 			indx = 1
 			break
 		}
-		if string(res) > max {
-			max = string(res)
-		}
 	}
-	
-	check := "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-	ind := strings.Index(check, max) + 1
-	if indx == 1 || ind < 2 {
+	if indx == 1 || len(str) < 2{
 		fmt.Print("NV")	
+	}else if math.MaxInt32 <nbr || math.MinInt32 > nbr{
+		fmt.Print(int64(nbr))
 	}else{
 		if nbr < 0 {
 			fmt.Print("-")
 			nbr *= -1	
 		}
-		for nbr > ind {
-			if nbr > ind {
-				fmt.Print(nbr % ind)
-				nbr = int(nbr/ind)
+		i:=0
+		nan:=""
+		for nbr >= len(str) {
+			if nbr >= len(str) {
+				nan +=string(str[nbr % len(str)])
+				nbr = nbr/len(str)
+				i++
 			}
-			
 		}
-		fmt.Print(nbr)
+		nan +=string(str[nbr])
+		fmt.Print(Reverse(nan))
 	}
 }
