@@ -1,11 +1,11 @@
 package piscine
 
-func Any(f func(int) bool, arr []int) []bool {
+func Any(f func(string) bool, arr []string) bool {
 
-	tab := make([]bool, len(arr))
-
-	for k,v := range arr{
-		tab[k] = f(v)
+	for _,i:=range arr{
+		if f(i){
+			return true
+		}
 	}
-	return tab
+	return false
 }
