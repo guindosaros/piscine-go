@@ -1,6 +1,6 @@
 package piscine
 
-func any(f func(int) bool, arr []int) []bool {
+func Any(f func(int) bool, arr []int) []bool {
 
 	tab := make([]bool, len(arr))
 
